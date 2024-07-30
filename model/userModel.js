@@ -4,8 +4,15 @@ const mySchema = new mongoose.Schema({
     fullName:{type:String},
     email:{type:String},
     password:{type:String},
+    contact:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"contact"
+    }],
+    isVerified:{
+        type:String
+    }
 }, {timestamps:true})
 
-const myModel = mongoose.model('User', mySchema)
+const userModel = mongoose.model('user', mySchema)
 
-module.exports = myModel
+module.exports = userModel
