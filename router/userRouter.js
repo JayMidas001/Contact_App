@@ -1,5 +1,5 @@
 const express = require(`express`)
-const { signUp, logIn, getAllUsers, verifyEmail, resendVerificationEmail, forgotPassword, resetPassword} = require("../controller/userController")
+const { signUp, logIn, getAllUsers, verifyEmail, resendVerificationEmail, forgotPassword, resetPassword, getOne} = require("../controller/userController")
 const router = express.Router()
 
 router.post(`/sign-up`, signUp)
@@ -14,7 +14,9 @@ router.post(`/forgot-password`, forgotPassword)
 
 router.post(`/reset-password/:token`, resetPassword)
 
-router.get(`/contactapp/allusers`, getAllUsers)
+router.get(`/allusers`, getAllUsers)
+
+router.get(`/getone/:userId`, getOne)
 
 
 module.exports = router
