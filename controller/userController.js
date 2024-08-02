@@ -15,6 +15,9 @@ const {
 const signUp = async(req,res)=>{
     try {
             const {fullName, email, password} = req.body
+            if(!fullName || !email || !password){
+                return res.status(400).json(`Please enter all fields.`)
+            }
         const emailExist = await userModel.findOne({email})
         if (emailExist) {
             return res.status(400).json(`User with email already exist`)
